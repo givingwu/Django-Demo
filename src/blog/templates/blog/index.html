@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All Blogs - Django HTML template</title>
+</head>
+<body>
+<a href="{% url 'blog:edit_page' 0 %}">new article</a>
+<h1>Articles:</h1>
+<main>
+  <ul>
+    {% for article in articles %}
+      <li>
+        <!-- <a href="/blog/article/{{article.id}}/"><h3>{{ article.title }}</h3></a> -->
+        <a href="{% url 'blog:article_page' article.id %}"><h3>{{ article.title }}</h3></a>
+        <article>
+          <p>{{article.content}}</p>
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+</main>
+</body>
+</html>
